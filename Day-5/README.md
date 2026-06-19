@@ -1,71 +1,79 @@
-# Day 5 - IoT Backend with FastAPI & MySQL
+# Day 5 - IoT Backend Integration with ESP32 Simulator
 
-## Overview
+## Project Overview
 
-This project demonstrates an IoT data pipeline where sensor readings are sent to a FastAPI backend and stored in a MySQL database.
+This project demonstrates an IoT system where sensor data is generated using an ESP32 Simulator and sent to a FastAPI backend for storage in a MySQL database. The system enables efficient collection, processing, and retrieval of temperature and humidity readings.
 
-### Technologies Used
+## Technologies Used
 
 * Python
 * FastAPI
 * MySQL
 * SQLAlchemy
-* Uvicorn
+* ESP32 Simulator
 
 ## Project Flow
 
 ESP32 Simulator → FastAPI Backend → MySQL Database
 
-## Features
+## My Contribution
 
-* Receive temperature and humidity data through REST APIs
-* Store sensor readings in MySQL
-* API testing using Swagger UI
-* Simulated ESP32 data transmission using Python
+* Developed the ESP32 Simulator in Python.
+* Generated and transmitted temperature and humidity data to the FastAPI backend.
+* Added device identification (`device_id`) support for sensor tracking.
+* Tested API communication between the simulator and backend.
+* Verified successful storage of sensor readings in MySQL.
+* Assisted in integration, debugging, and end-to-end testing of the system.
+
+## Team Collaboration
+
+The FastAPI backend, database models, schemas, and MySQL integration were developed by a teammate. My responsibility was to build the ESP32 Simulator, validate API communication, test data transmission, and ensure successful integration between the simulator, backend, and database.
 
 ## API Endpoints
 
 ### POST /readings
 
-Store sensor readings in the database.
+Stores sensor readings in the database.
+
+Example Request:
+
+```json
+{
+  "device_id": "ESP32_001",
+  "temperature": 28.5,
+  "humidity": 65.2
+}
+```
 
 ### GET /readings
 
-Retrieve stored sensor readings.
+Retrieves all stored sensor readings from the database.
 
 ## Running the Project
 
-Start the backend:
+### Start the Backend
 
 ```bash
 python -m uvicorn main:app --reload
 ```
 
-Run the ESP32 simulator:
+### Run the ESP32 Simulator
 
 ```bash
 python esp32_simulator.py
 ```
 
-## Team Contributions
+### Access API Documentation
 
-### Teammate Contribution
-
-* Developed the FastAPI backend
-* Integrated MySQL database
-* Created API endpoints and database models
-
-### My Contribution
-
-* Developed the ESP32 Python Simulator
-* Tested API communication and data flow
-* Assisted with integration and debugging
+```text
+http://127.0.0.1:8000/docs
+```
 
 ## Learning Outcomes
 
-* FastAPI backend development
-* MySQL database integration
-* REST API communication
-* IoT data handling and testing
-
-ESP32 IoT Internship - Day 5 Project
+* Understanding IoT data flow from device to database.
+* Sending sensor data using HTTP requests.
+* Testing and validating API communication.
+* Working with MySQL-backed applications.
+* Performing end-to-end integration and debugging.
+* Simulating ESP32 sensor data using Python.
